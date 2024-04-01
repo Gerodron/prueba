@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tarker.Booking.Domain.Entities.User
 {
-    internal class UserEntity
+    public class UserEntity
     {
         public int UserId { get; set; }
 
