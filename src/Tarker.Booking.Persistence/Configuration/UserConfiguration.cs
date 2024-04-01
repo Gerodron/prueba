@@ -17,6 +17,11 @@ namespace Tarker.Booking.Persistence.Configuration
             builder.Property(x => x.LastName).IsRequired();
             builder.Property(x => x.UserName).IsRequired();
             builder.Property(x => x.PassWord).IsRequired();
+
+            builder
+                .HasMany(x => x.Bookings)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId);   
         }
     }
 }

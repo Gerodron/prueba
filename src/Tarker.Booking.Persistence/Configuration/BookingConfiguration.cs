@@ -18,6 +18,17 @@ namespace Tarker.Booking.Persistence.Configuration
             builder.Property(x => x.Type).IsRequired();
             builder.Property(x => x.CustomerId).IsRequired();
             builder.Property(x => x.UserId).IsRequired();
+
+            builder
+                .HasOne(x => x.User)
+                .WithMany(x => x.Bookings)
+                .HasForeignKey(x => x.UserId);
+
+            builder
+                .HasOne(x => x.Customer)
+                .WithMany(x => x.Bookings)
+                .HasForeignKey(x => x.CustomerId);
+
         }
     }
 }

@@ -15,6 +15,11 @@ namespace Tarker.Booking.Persistence.Configuration
             builder.HasKey(x => x.CustomerId);
             builder.Property(x => x.FullName).IsRequired();
             builder.Property(x => x.DocumentNumber).IsRequired();
+
+            builder
+                .HasMany(x => x.Bookings)
+                .WithOne(x => x.Customer)
+                .HasPrincipalKey(x => x.CustomerId);
         }
     }
 }
