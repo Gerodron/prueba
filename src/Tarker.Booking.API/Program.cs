@@ -2,7 +2,7 @@ using Tarker.Booking.Application;
 using Tarker.Booking.Common;
 using Tarker.Booking.API;
 using Microsoft.EntityFrameworkCore;
-using Tarker.Booking.Application.Interfaces;
+using Tarker.Booking.Application.Database;
 using Tarker.Booking.Persistence.Database;
 using Tarker.Booking.External;
 using Tarker.Booking.Persistence;
