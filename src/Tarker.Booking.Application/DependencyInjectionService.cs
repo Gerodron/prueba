@@ -36,7 +36,7 @@ namespace Tarker.Booking.Application
             #endregion
 
             services.AddTransient<ICreateCustomerCommand, CreateCustomerCommand>(); 
-
+            services.AddTransient<IUpdateUserCommand , UpdateUserCommand>();    
 
             return services;
         }
