@@ -15,6 +15,9 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Tarker.Booking.Application.Database.User.Queries.GetAllUser;
 using Tarker.Booking.Application.Database.User.Queries.GetUserById;
 using Tarker.Booking.Application.Database.User.Queries.GetUserByUserNameAndPassword;
+using Tarker.Booking.Application.Database.Customer.Commands.CreateCustomer;
+using Tarker.Booking.Application.Database.Customer.Commands.UpdateCustomer;
+using Tarker.Booking.Application.Database.Customer.Commands.DeleteCustomer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,7 @@ builder.Services
 
 var app = builder.Build();
 
+#region API Usuarios
 app.MapPost("insertar-user", async (ICreateUserCommand service) =>
 {
     try
@@ -121,6 +125,37 @@ app.MapGet("get-user-by-id", async (IGetUserByIdQuery service) =>
 app.MapGet("get-user-by-username-and-password", async (IGetUserByUserNameAndPasswordQuery service) =>
 {
     return Results.Ok(await service.Execute("JP_789", "JP_987"));
+});
+#endregion
+
+app.MapPost("insertar-cliente", async (ICreateCustomerCommand service) => 
+{
+    var entity = new CreateCustomerModel()
+    {
+        FullName = "CONSUEGRA MORAN SAUL SEBASTIAN",
+        DocumentNumber = "99999999"
+    };
+
+    var response = await service.Execute(entity);
+
+    return Results.Ok(response);
+});
+app.MapPut("actualizar-cliente", async (IUpdateCustomerCommand service) =>
+{
+    var entity = new UpdateCustomerModel()
+    {
+        CustomerId = 5,
+        FullName = "CONSUEGRA MORAN SAUL SEBASTIAN",
+        DocumentNumber = "99991243"
+    };
+
+    return Results.Ok(await service.Execute(entity));
+});
+app.MapDelete("remover-cliente", async (IDeleteCustomerCommand service) =>
+{
+    var customerId = 5;
+
+    return Results.Ok(await service.Execute(customerId));
 });
 
 app.Run();
