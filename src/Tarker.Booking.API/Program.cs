@@ -130,15 +130,36 @@ app.MapGet("get-user-by-username-and-password", async (IGetUserByUserNameAndPass
 
 app.MapPost("insertar-cliente", async (ICreateCustomerCommand service) => 
 {
-    var entity = new CreateCustomerModel()
+    var entity1 = new CreateCustomerModel()
     {
-        FullName = "CONSUEGRA MORAN SAUL SEBASTIAN",
-        DocumentNumber = "99999999"
+        FullName = "Ana García",
+        DocumentNumber = "12345678"
     };
 
-    var response = await service.Execute(entity);
+    var entity2 = new CreateCustomerModel()
+    {
+        FullName = "Pedro Pérez",
+        DocumentNumber = "87654321"
+    };
 
-    return Results.Ok(response);
+    var entity3 = new CreateCustomerModel()
+    {
+        FullName = "María Rodríguez",
+        DocumentNumber = "55555555"
+    };
+
+    var entity4 = new CreateCustomerModel()
+    {
+        FullName = "Luisa Martínez",
+        DocumentNumber = "11111111"
+    };
+
+    await service.Execute(entity1);
+    await service.Execute(entity2);
+    await service.Execute(entity3);
+    await service.Execute(entity4);
+
+    return Results.Ok("OK");
 });
 app.MapPut("actualizar-cliente", async (IUpdateCustomerCommand service) =>
 {
