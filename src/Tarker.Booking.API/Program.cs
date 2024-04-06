@@ -120,7 +120,7 @@ app.MapGet("get-user-by-id", async (IGetUserByIdQuery service) =>
 });
 app.MapGet("get-user-by-username-and-password", async (IGetUserByUserNameAndPasswordQuery service) =>
 {
-    return Results.Ok(await service.Execute("ML_456", "ML_654"));
+    return Results.Ok(await service.Execute("JP_789", "JP_987"));
 });
 
 app.Run();
