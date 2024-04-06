@@ -10,7 +10,6 @@ namespace Tarker.Booking.Application.Database
         DbSet<UserEntity> Users { get; set; }
         DbSet<CustomerEntity> Customers { get; set; }
         DbSet<BookingEntity> Bookings { get; set; }
-
         Task<bool> SaveAsync();
     }
 }
