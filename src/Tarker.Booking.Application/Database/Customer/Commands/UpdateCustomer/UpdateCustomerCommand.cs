@@ -15,7 +15,8 @@ namespace Tarker.Booking.Application.Database.Customer.Commands.UpdateCustomer
 
         public UpdateCustomerCommand(IDataBaseService dataBaseService, IMapper mapper)
         {
-            
+            _dataBaseService = dataBaseService;
+            _mapper = mapper;
         }
 
         public async Task<UpdateCustomerModel> Execute(UpdateCustomerModel model)
