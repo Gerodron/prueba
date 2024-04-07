@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Tarker.Booking.Application.Configuration;
+using Tarker.Booking.Application.Database.Booking.Commands.CreateBooking;
 using Tarker.Booking.Application.Database.Customer.Commands.CreateCustomer;
 using Tarker.Booking.Application.Database.Customer.Commands.DeleteCustomer;
 using Tarker.Booking.Application.Database.Customer.Commands.UpdateCustomer;
@@ -40,12 +41,16 @@ namespace Tarker.Booking.Application
             services.AddTransient<IGetUserByUserNameAndPasswordQuery , GetUserByUserNameAndPasswordQuery>();
             #endregion
 
+            #region Operaciones de Clientes
             services.AddTransient<ICreateCustomerCommand, CreateCustomerCommand>(); 
             services.AddTransient<IUpdateCustomerCommand , UpdateCustomerCommand>();    
             services.AddTransient<IDeleteCustomerCommand, DeleteCustomerCommand>();
             services.AddTransient<IGetAllCustomersQuery , GetAllCustomersQuery>();
             services.AddTransient<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
             services.AddTransient<IGetCustomerByDocumentNumberQuery, GetCustomerByDocumentNumberQuery>();
+            #endregion
+
+            services.AddTransient<ICreateBookingCommand, CreateBookingCommand>();
 
             return services;
         }
