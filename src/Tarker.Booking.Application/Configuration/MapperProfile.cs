@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Tarker.Booking.Application.Database.Customer.Commands.CreateCustomer;
 using Tarker.Booking.Application.Database.Customer.Commands.UpdateCustomer;
+<<<<<<< HEAD
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomerByDocumentNumber;
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomerById;
+=======
+>>>>>>> correcion-de-parametros-2
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomers;
 using Tarker.Booking.Application.Database.User.Commands.CreateUser;
 using Tarker.Booking.Application.Database.User.Commands.UpdateUser;
