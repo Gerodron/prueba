@@ -8,6 +8,6 @@ namespace Tarker.Booking.Application.Database.Customer.Queries.GetCustomers
 {
     public interface IGetAllCustomersQuery
     {
-        Task<List<GetAllCustomersModel>> Execute(int customerId);
+        Task<List<GetAllCustomersModel>> Execute();
     }
 }

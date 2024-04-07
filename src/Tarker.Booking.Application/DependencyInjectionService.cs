@@ -4,8 +4,11 @@ using Tarker.Booking.Application.Configuration;
 using Tarker.Booking.Application.Database.Customer.Commands.CreateCustomer;
 using Tarker.Booking.Application.Database.Customer.Commands.DeleteCustomer;
 using Tarker.Booking.Application.Database.Customer.Commands.UpdateCustomer;
+<<<<<<< HEAD
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomerByDocumentNumber;
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomerById;
+=======
+>>>>>>> correcion-de-parametros-2
 using Tarker.Booking.Application.Database.Customer.Queries.GetCustomers;
 using Tarker.Booking.Application.Database.User.Commands.CreateUser;
 using Tarker.Booking.Application.Database.User.Commands.DeleteUser;
@@ -44,8 +47,11 @@ namespace Tarker.Booking.Application
             services.AddTransient<IUpdateCustomerCommand , UpdateCustomerCommand>();    
             services.AddTransient<IDeleteCustomerCommand, DeleteCustomerCommand>();
             services.AddTransient<IGetAllCustomersQuery , GetAllCustomersQuery>();
+<<<<<<< HEAD
             services.AddTransient<IGetCustomerByIdQuery, GetCustomerByIdQuery>();
             services.AddTransient<IGetCustomerByDocumentNumberQuery, GetCustomerByDocumentNumberQuery>();
+=======
+>>>>>>> correcion-de-parametros-2
 
             return services;
         }
