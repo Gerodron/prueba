@@ -19,7 +19,7 @@ namespace Tarker.Booking.Application.Database.Customer.Queries.GetCustomers
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllCustomersModel>> Execute()
+        public async Task<List<GetAllCustomersModel>> Execute(int customerId)
         {
             var entity = await _dataBaseService.Customers.ToListAsync();
             return _mapper.Map<List<GetAllCustomersModel>>(entity);   
