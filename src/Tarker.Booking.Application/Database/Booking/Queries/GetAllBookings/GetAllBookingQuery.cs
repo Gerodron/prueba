@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Tarker.Booking.Application.Database.Booking.Queries.GetAllBookings
 {
-    public class GetAllBookingQuery
+    public class GetAllBookingQuery : IGetAllBookingsQuery
     {
         private readonly IDataBaseService _dataBaseService;
         private readonly IMapper _mapper;
@@ -21,8 +21,20 @@ namespace Tarker.Booking.Application.Database.Booking.Queries.GetAllBookings
 
         public async Task<List<GetAllBookingModel>> Execute()
         {
-            var entities = await _dataBaseService.Bookings.ToListAsync();
-            return _mapper.Map<List<GetAllBookingModel>>(entities);
+            var result = await (from Booking in _dataBaseService.Bookings
+                                join Customer in _dataBaseService.Customers
+                                on Booking.CustomerId equals Customer.CustomerId
+                                select new GetAllBookingModel
+                                {
+                                    BookingId = Booking.BookingId,
+                                    Code = Booking.Code,
+                                    RegisterDate = Booking.RegisterDate,
+                                    Type = Booking.Type,
+                                    CustomerFullName = Customer.FullName,
+                                    CustomerDocumentNumber = Customer.DocumentNumber,
+                                }
+                                ).ToListAsync();
+            return result;
         }
     }
 }

@@ -51,6 +51,7 @@ namespace Tarker.Booking.Application
             #endregion
 
             services.AddTransient<ICreateBookingCommand, CreateBookingCommand>();
+            services.AddTransient<IGetAllCustomersQuery, GetAllCustomersQuery>();
 
             return services;
         }
