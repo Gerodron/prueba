@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tarker.Booking.Domain.Enums
 {
-    internal class BookinType
+    public enum BookingType
     {
+        Documentation,
+        Transfer,
+        Renewal
     }
 }
